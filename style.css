@@ -1,0 +1,134 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'ssbu';
+  src: url('./ssbu.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'ssbu';
+  font-weight: 900;
+  background-color: #eae4e8;
+}
+
+.characters-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: min(1020px, 100%);
+  column-gap: 2px;
+  row-gap: 2px;
+  cursor: url('./img/cursor.png'), pointer;
+}
+
+.character-card {
+  position: relative;
+  width: 200px;
+  height: 140px;
+  background-color: #5a81f6;
+  background-repeat: no-repeat;
+}
+
+.character-card::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: inset 0 0 0 4px red;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: .2s;
+}
+
+.character-card:hover::after {
+  opacity: 1;
+}
+
+.character-card.mario {
+  background-image: url('./img/mario.webp');
+  background-size: 240px;
+  background-position: 12px -16px;
+}
+
+.character-card.donkey-kong {
+  background-image: url('./img/donkey-kong.webp');
+  background-size: 300px;
+  background-position: -68px -32px;
+}
+
+.character-card.link {
+  background-image: url('./img/link.webp');
+  background-size: 500px;
+  background-position: -196px -90px;
+}
+
+.character-card.samus {
+  background-image: url('./img/samus.webp');
+  background-size: 674px;
+  background-position: -224px -68px;
+}
+
+.character-card.yoshi {
+  background-image: url('./img/yoshi.webp');
+  background-size: 218px;
+  background-position: -12px -2px;
+}
+
+.character-card.kirby {
+  background-image: url('./img/kirby.webp');
+  background-size: 148px;
+  background-position: 24px -12px;
+}
+
+.character-card.fox {
+  background-image: url('./img/fox.webp');
+  background-size: 324px;
+  background-position: -54px -22px;
+}
+
+.character-card.pikachu {
+  background-image: url('./img/pikachu.webp');
+  background-size: 286px;
+  background-position: -40px -52px;
+}
+
+.character-card.random {
+  background-image: url('./img/random.webp');
+  background-size: 88px;
+  background-position: 58px 12px;
+}
+
+
+.character {
+  width: 100%;
+  height: 100%;
+  background-color: #5a81f6;
+  object-fit: cover;
+}
+
+.character-name {
+  position: absolute;
+  bottom: 2px;
+  width: 100%;
+  font-size: 28px;
+  text-transform: uppercase;
+  color: #fff;
+  -webkit-text-stroke: 6px black;
+  paint-order: stroke fill;
+  text-align: center;
+}
